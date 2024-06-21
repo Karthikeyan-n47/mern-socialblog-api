@@ -32,7 +32,6 @@ app.use(
       "https://mern-socialblog-git-main-karthiks-projects-1beb4d05.vercel.app/",
       "https://mern-socialblog-karthiks-projects-1beb4d05.vercel.app/",
     ],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     optionSuccessStatus: 200,
   })
