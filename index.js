@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const cors = require("cors");
+// const cors = require("cors");
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/users");
 const postRouter = require("./routes/posts");
@@ -39,15 +39,24 @@ mongoose
 //   next();
 // }
 
-app.use(
-  cors({
-    origin: "https://mern-socialblog.vercel.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-    optionSuccessStatus: 200,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://mern-socialblog.vercel.app",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     credentials: true,
+//     optionSuccessStatus: 200,
+//   })
+// );
 // app.use(setCorsHeaders);
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", yourExactHostname);
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 app.use(express.json());
 app.use(cookieParser());
 
