@@ -49,7 +49,10 @@ app.use(
 );
 // app.use(setCorsHeaders);
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", yourExactHostname);
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://mern-socialblog.vercel.app"
+  );
   res.header("Access-Control-Allow-Credentials", true);
   res.header(
     "Access-Control-Allow-Headers",
