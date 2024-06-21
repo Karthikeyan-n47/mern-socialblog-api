@@ -25,7 +25,9 @@ mongoose
     console.log(err);
   });
 
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(
+  cors({ origin: "https://mern-socialblog.vercel.app", credentials: true })
+);
 app.use(express.json());
 app.use(cookieParser());
 
