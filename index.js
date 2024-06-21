@@ -25,18 +25,18 @@ mongoose
     console.log(err);
   });
 
-// function setCorsHeaders(req, res, next) {
-//   res.setHeader(
-//     "Access-Control-Allow-Origin",
-//     "https://mern-socialblog.vercel.app"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, PATCH, DELETE"
-//   );
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//   next();
-// }
+function setCorsHeaders(req, res, next) {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://mern-socialblog.vercel.app"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+}
 
 app.use(
   cors({
@@ -45,7 +45,7 @@ app.use(
     optionSuccessStatus: 200,
   })
 );
-// app.use(setCorsHeaders);
+app.use(setCorsHeaders);
 app.use(express.json());
 app.use(cookieParser());
 
