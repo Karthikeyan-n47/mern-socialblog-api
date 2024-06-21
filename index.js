@@ -25,6 +25,7 @@ mongoose
     console.log(err);
   });
 
+app.use(cookieParser());
 app.use(
   cors({
     origin: [
@@ -37,7 +38,6 @@ app.use(
 );
 
 app.use(express.json());
-app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
