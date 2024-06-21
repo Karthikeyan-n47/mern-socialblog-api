@@ -25,20 +25,6 @@ mongoose
     console.log(err);
   });
 
-// function setCorsHeaders(req, res, next) {
-//   res.setHeader(
-//     "Access-Control-Allow-Origin",
-//     "https://mern-socialblog.vercel.app"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, PATCH, DELETE"
-//   );
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//   res.setHeader("Access-Control-Allow-Credentials", "true");
-//   next();
-// }
-
 app.use(
   cors({
     origin: [
@@ -51,19 +37,7 @@ app.use(
     optionSuccessStatus: 200,
   })
 );
-// app.use(setCorsHeaders);
-// app.use(function (req, res, next) {
-//   res.header(
-//     "Access-Control-Allow-Origin",
-//     "https://mern-socialblog.vercel.app"
-//   );
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
+
 app.use(express.json());
 app.use(cookieParser());
 
