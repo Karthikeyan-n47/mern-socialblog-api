@@ -41,25 +41,29 @@ mongoose
 
 app.use(
   cors({
-    origin: "https://mern-socialblog.vercel.app",
+    origin: [
+      "https://mern-socialblog.vercel.app",
+      "https://mern-socialblog-git-main-karthiks-projects-1beb4d05.vercel.app/",
+      "https://mern-socialblog-karthiks-projects-1beb4d05.vercel.app/",
+    ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     optionSuccessStatus: 200,
   })
 );
 // app.use(setCorsHeaders);
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://mern-socialblog.vercel.app"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://mern-socialblog.vercel.app"
+//   );
+//   res.header("Access-Control-Allow-Credentials", true);
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 app.use(express.json());
 app.use(cookieParser());
 
