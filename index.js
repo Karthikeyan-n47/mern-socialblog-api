@@ -33,7 +33,6 @@ app.use(
       "https://mern-socialblog-karthiks-projects-1beb4d05.vercel.app/",
     ],
     credentials: true,
-    optionSuccessStatus: 200,
   })
 );
 
