@@ -76,6 +76,8 @@ exports.login = CatchAsync(async (req, res, next) => {
     res
       .cookie("token", token, {
         httpOnly: true,
+        sameSite: "None",
+        secure: true,
         maxAge: age,
       })
       .status(200)
