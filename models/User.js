@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -30,5 +31,9 @@ const UserSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+UserSchema.plugin(uniqueValidator, {
+  message: "{VALUE} already exists! Please enter a new {VALUE}",
+});
 
 module.exports = mongoose.model("User", UserSchema);
