@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
 
 const PostSchema = new mongoose.Schema(
   {
     title: {
       type: String,
       required: [true, "Post must have a title"],
-      unique: [true, "Title already exists, please enter a new one"],
+      unique: true,
     },
     desc: {
       type: String,
@@ -28,6 +29,10 @@ const PostSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+PostSchema.plugin(uniqueValidator, {
+  message: "Title already exists, please enter a new one",
+});
 
 PostSchema.pre(/^find/, function (next) {
   this.populate({

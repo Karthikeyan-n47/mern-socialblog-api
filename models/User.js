@@ -6,12 +6,12 @@ const UserSchema = new mongoose.Schema(
     username: {
       type: String,
       required: [true, "User must have a username"],
-      unique: [true, "Username already taken, please enter a new one"],
+      unique: true,
     },
     email: {
       type: String,
       required: [true, "User must have a username"],
-      unique: [true, "Email address already exists, please enter a new one"],
+      unique: true,
     },
     password: {
       type: String,
@@ -33,7 +33,7 @@ const UserSchema = new mongoose.Schema(
 );
 
 UserSchema.plugin(uniqueValidator, {
-  message: "{VALUE} already exists! Please enter a new {VALUE}",
+  message: "{VALUE} already exists! Please enter a new one",
 });
 
 module.exports = mongoose.model("User", UserSchema);
