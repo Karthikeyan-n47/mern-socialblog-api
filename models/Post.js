@@ -5,7 +5,7 @@ const PostSchema = new mongoose.Schema(
     title: {
       type: String,
       required: [true, "Post must have a title"],
-      unique: true,
+      unique: [true, "Title already exists, please enter a new one"],
     },
     desc: {
       type: String,

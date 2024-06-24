@@ -15,7 +15,7 @@ exports.uploadPhoto = upload.single("file");
 
 exports.protect = (req, res, next) => {
   const token = req.cookies.token;
-  console.log(req.cookies.token);
+  // console.log(req.cookies.token);
   if (!token) return next(new AppError("You are not logged in!", 401));
   jwt.verify(token, process.env.JWT_SECRET_KEY, (err, payload) => {
     if (err) {
@@ -72,7 +72,7 @@ exports.login = CatchAsync(async (req, res, next) => {
         expiresIn: age,
       }
     );
-    console.log(token);
+    // console.log(token);
     res
       .cookie("token", token, {
         httpOnly: true,
